@@ -1,0 +1,37 @@
+#env vars for user. Pulled in via bashrc
+
+PATH=/opt/subversion/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:/Users/ruppeg01/bin:/bin:/sbin:/usr/bin:/usr/sbin:usr/local:/usr/local/mysql/bin:
+export PATH
+
+# to set VIM as the editor for the EDITOR variable
+export EDITOR="vim"
+export CVSEDITOR="vim"
+export SVN_EDITOR="vim"
+
+export VIM_APP_DIR="/Applications"
+#set TextMate as editor for less (invoked by v)
+#export LESSEDIT='mate -l %lm %f'
+
+export http_proxy='http://www-cache.reith.bbc.co.uk:80'
+export https_proxy='http://www-cache.reith.bbc.co.uk:80'
+export ftp_proxy='ftp://ftp-gw.reith.bbc.co.uk:21'
+export socks_proxy='socks-gw.reith.bbc.co.uk:1085'
+
+export iplayer="/Users/ruppeg01/dev/forge/iplayer"
+export ionclient="/Users/ruppeg01/dev/forge/ionclient"
+export php="/Users/ruppeg01/dev/forge/iplayer/webapp/php"
+export static="/Users/ruppeg01/dev/forge/iplayer/webapp/static"                                                                                                                                                                                                                     
+export modules="/Users/ruppeg01/dev/forge/iplayer/webapp/php/modules"
+export lib="/Users/ruppeg01/dev/forge/iplayer/webapp/php/lib"
+export pc="/Users/ruppeg01/dev/forge/iplayer/webapp/php/modules/pagecomponents"
+
+
+# MacPorts Installer addition on 2009-11-24_at_11:48:51: adding an appropriate PATH variable for use with MacPorts.
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+
+# MacPorts Installer addition on 2009-11-24_at_11:48:51: adding an appropriate MANPATH variable for use with MacPorts.
+export MANPATH=/opt/local/share/man:$MANPATH
+# Finished adapting your MANPATH environment variable for use with MacPorts.
+

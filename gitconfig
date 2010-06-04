@@ -1,0 +1,16 @@
+[user]
+	name = Gilles Ruppert
+	email = gillesruppert@gmail.com
+[core]
+	excludesfile = ~/.gitignore
+
+[color]
+	ui = auto
+
+[alias]
+	ci = commit
+	st = status
+	co = checkout
+	cp = cherry-pick
+	logp = log --pretty=oneline
+	lp = log --pretty=format:'%h was %an, %ar, message: %s'

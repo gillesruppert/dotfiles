@@ -1,0 +1,40 @@
+#aliases for user. Pulled in via bashrc
+
+alias ll='ls -lF'
+alias la='ls -alF'
+
+alias reload='source ~/.bash_profile'
+alias c='clear'
+alias h='history'
+alias ..='cd ..'
+alias _='cd -'
+
+function take {
+	mkdir -p $1
+	cd $1
+}
+
+#specific aliases
+alias forge='ssh root@pal.sandbox.dev.bbc.co.uk'
+alias dev='cd ~/dev'
+
+# git aliases
+alias g='git status'
+alias go='git checkout'
+alias gsr='git svn rebase'
+alias gsd='git svn dcommit'
+alias gsdd='git svn dcommit --dry-run'
+alias gsf='git svn fetch'
+alias gap='git add -p'
+alias glog='git log --pretty="oneline"'
+alias gs='git stash'
+alias ga='git stash apply'
+
+function gg {
+	git commit -v -m "$*"
+}
+
+function gc {
+	git commit -am "$*"
+}
+

@@ -1,0 +1,253 @@
+let SessionLoad = 1
+if &cp | set nocp | endif
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd ~/dev/forge/iplayer
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +275 webapp/static/script/iplayer/controllers/ishoutmanager.js
+badd +64 webapp/static/script/iplayer/views/ishoutview.js
+badd +1 webapp/static/script/iplayer/utils/events.js
+badd +46 webapp/static/script/iplayer/utils/utils.js
+badd +0 webapp/static/script/iplayer/events.js
+silent! argdel *
+set lines=80 columns=261
+edit webapp/static/script/iplayer/events.js
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+wincmd _ | wincmd |
+split
+1wincmd k
+wincmd w
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+exe 'vert 1resize ' . ((&columns * 31 + 130) / 261)
+exe '2resize ' . ((&lines * 1 + 40) / 80)
+exe 'vert 2resize ' . ((&columns * 229 + 130) / 261)
+exe '3resize ' . ((&lines * 76 + 40) / 80)
+exe 'vert 3resize ' . ((&columns * 98 + 130) / 261)
+exe '4resize ' . ((&lines * 76 + 40) / 80)
+exe 'vert 4resize ' . ((&columns * 130 + 130) / 261)
+argglobal
+enew
+file NERD_tree_1
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+wincmd w
+argglobal
+enew
+file -MiniBufExplorer-
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+wincmd w
+argglobal
+setlocal fdm=syntax
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=4
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+72
+normal zo
+76
+normal zo
+let s:l = 78 - ((73 * winheight(0) + 38) / 76)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+78
+normal! 043l
+wincmd w
+argglobal
+edit webapp/static/script/iplayer/views/ishoutview.js
+setlocal fdm=syntax
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=4
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+1
+normal zo
+4
+normal zo
+49
+normal zo
+53
+normal zo
+57
+normal zo
+63
+normal zo
+114
+normal zo
+136
+normal zo
+157
+normal zo
+164
+normal zo
+184
+normal zo
+187
+normal zo
+164
+normal zo
+136
+normal zo
+201
+normal zo
+229
+normal zo
+233
+normal zo
+236
+normal zo
+229
+normal zo
+250
+normal zo
+255
+normal zo
+273
+normal zo
+278
+normal zo
+284
+normal zo
+301
+normal zo
+308
+normal zo
+201
+normal zo
+249
+normal zo
+278
+normal zo
+283
+normal zo
+301
+normal zo
+306
+normal zo
+312
+normal zo
+329
+normal zo
+336
+normal zo
+249
+normal zo
+277
+normal zo
+298
+normal zo
+303
+normal zo
+321
+normal zo
+326
+normal zo
+332
+normal zo
+349
+normal zo
+356
+normal zo
+277
+normal zo
+298
+normal zo
+303
+normal zo
+322
+normal zo
+327
+normal zo
+333
+normal zo
+350
+normal zo
+357
+normal zo
+370
+normal zo
+389
+normal zo
+415
+normal zo
+421
+normal zo
+426
+normal zo
+438
+normal zo
+426
+normal zo
+444
+normal zo
+460
+normal zo
+466
+normal zo
+510
+normal zo
+1
+normal zo
+let s:l = 64 - ((63 * winheight(0) + 38) / 76)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+64
+normal! 0
+wincmd w
+3wincmd w
+exe 'vert 1resize ' . ((&columns * 31 + 130) / 261)
+exe '2resize ' . ((&lines * 1 + 40) / 80)
+exe 'vert 2resize ' . ((&columns * 229 + 130) / 261)
+exe '3resize ' . ((&lines * 76 + 40) / 80)
+exe 'vert 3resize ' . ((&columns * 98 + 130) / 261)
+exe '4resize ' . ((&lines * 76 + 40) / 80)
+exe 'vert 4resize ' . ((&columns * 130 + 130) / 261)
+tabnext 1
+if exists('s:wipebuf')
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 shortmess=filnxtToO
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . s:sx
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :

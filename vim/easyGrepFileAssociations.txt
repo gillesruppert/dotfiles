@@ -1,0 +1,2 @@
+PHP=*.php *.phtml *.spv
+Web2=*.html *.htm *.js *.css *.php *.phtml *.spv
