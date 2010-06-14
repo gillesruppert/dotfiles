@@ -1,3 +1,5 @@
 # config file. Pulled in via bashrc
 
 test -r /sw/bin/init.sh && . /sw/bin/init.sh
+# shows which git branch the current directory is in
+PS1='\h:\W$(__git_ps1 "(%s)") \u\$ '

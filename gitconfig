@@ -3,6 +3,7 @@
 	email = gillesruppert@gmail.com
 [core]
 	excludesfile = ~/.gitignore
+	editor = nano
 
 [color]
 	ui = auto
