@@ -2,4 +2,11 @@
 
 test -r /sw/bin/init.sh && . /sw/bin/init.sh
 # shows which git branch the current directory is in
-PS1='\h:\W$(__git_ps1 "(%s)") \u\$ '
+# \e[x;ym .... \e[m switches color on & off
+PS1='\e[0;36m\h:\W$(__git_ps1 "(%s)") \u\n→ \e[m'
+
+# I hate noise
+set bell-style visible
+
+# Tell less not to beep and also display colours
+export LESS="-QR"
