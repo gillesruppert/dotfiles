@@ -42,8 +42,8 @@ nnoremap <leader>, :w<cr>
 
 " save & restore sessions
 set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
-map <c-s> :mksession! $HOME/.vim/.session <cr>
-map <c-o> :source $HOME/.vim/.session <cr>
+map <c-s> :mksession! $HOME/.vimsession <cr>
+map <c-o> :source $HOME/.vimsession <cr>
 
 " added word chars
 set iskeyword+=$
