@@ -12,11 +12,11 @@
 " Last Modified: May 5, 2009
 
 if !exists("jslint_command")
-  let jslint_command = 'jsl'
+  let jslint_command = '~/.vim/jsl-0.3.0-mac/jsl'
 endif
 
 if !exists("jslint_command_options")
-  let jslint_command_options = '-nofilelisting -nocontext -nosummary -nologo -process'
+  let jslint_command_options = '-nofilelisting -nocontext -nosummary -nologo -conf ~/.vim/jsl-0.3.0-mac/jsl.conf -process'
 endif
 
 if !exists("jslint_highlight_color")
