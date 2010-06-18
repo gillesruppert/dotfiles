@@ -21,6 +21,7 @@ alias dev='cd ~/dev'
 # git aliases
 alias g='git status'
 alias go='git checkout'
+alias gd='git diff'
 alias gsr='git svn rebase'
 alias gsd='git svn dcommit'
 alias gsdd='git svn dcommit --dry-run'
