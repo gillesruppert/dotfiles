@@ -8,10 +8,16 @@ alias c='clear'
 alias h='history'
 alias ..='cd ..'
 alias _='cd -'
+alias ack='ack -a'
 
 function take {
 	mkdir -p $1
 	cd $1
+}
+
+function ippatch {
+	cd ~/dev/forge/iplayer
+	git diff --no-prefix > ~/Dropbox/Projects/iplayer/iplayer.patch
 }
 
 #specific aliases

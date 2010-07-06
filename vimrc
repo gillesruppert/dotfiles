@@ -153,7 +153,7 @@ set title
 
 " set status line
 set laststatus=2
-set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \%P " set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%=%-40(bytval=0x%B,%n%Y%)\%P
+set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \%P\ %{fugitive#statusline()} " set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%=%-40(bytval=0x%B,%n%Y%)\%P
 
 " set colorscheme depending on env
 set bg=dark
@@ -178,10 +178,12 @@ elseif has('unix')
 endif
 
 " fuzzy finder
-let g:fuzzy_ignore = ".svn"
-let g:fuzzy_matching_limit = 40
+"let g:fuzzy_ceiling = 10
+let g:fuzzy_matching_limit = 30
+let g:fuzzy_ignore = '**/profilingFixtures/*;**/fixtures/*'
 map <leader>t :FuzzyFinderTextMate<CR>
 map <leader>b :FuzzyFinderBuffer<CR>
+map <c-t> :FufFile<cr> "new version of FuzzyFileFinder
 
 " nerd tree
 map <leader>d :NERDTreeToggle<CR>
