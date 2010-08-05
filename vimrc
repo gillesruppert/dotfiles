@@ -165,9 +165,12 @@ if has("gui_running")
 	"colorscheme desert
 	"colorscheme inkpot
 	colorscheme wombat
+	"colorscheme ir_black
+	"colorscheme synic
 else
-	"colorscheme darkblue
-	colorscheme wombat
+	colorscheme darkblue
+	"colorscheme wombat
+	"colorscheme ir_black
 endif
 
 " Font. Very important.
