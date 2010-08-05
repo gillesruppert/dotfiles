@@ -16,8 +16,12 @@ augroup END
 " automatically close tag as needed
 au Filetype html,xml,xsl,php,spv,phtml source $HOME/.vim/scripts/closetag.vim
 
-" set path to ctags utility
-let Tlist_Ctags_Cmd = '~/.vim/utils/ctags'
+" taglist
+let Tlist_Ctags_Cmd = '~/.vim/utils/ctags' " set path to ctags utility
+let Tlist_WinWidth = 50
+map <leader>l :TlistToggle<CR> 
+map <F8> :!~/.vim/utils/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+let g:tlist_javascript_settings = 'javascript;s:string;a:array;o:object;f:function'
 
 " Easy Grep options
 let g:EasyGrepMode = 2
@@ -190,9 +194,6 @@ map <leader>d :NERDTreeToggle<CR>
 
 " change the VCS prefix command
 " let VCSCommandMapPrefix="<leader>s"
-
-" taglist
-map <leader>l :TlistToggle<CR> 
 
 " phpdoc
 inoremap <leader>p <esc>:call PhpDocSingle()<cr>i
