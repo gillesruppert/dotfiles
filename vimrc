@@ -92,8 +92,8 @@ nmap <silent> <leader>i :set nolist!<CR>
 set scrolloff=3
 
 " put swp files into the tmp dir rather than next to the file!
-set backupdir=$HOME/.vim-tmp,$HOME/.tmp,$HOME/tmp,/var/tmp,/tmp
-set directory=$HOME/.vim-tmp,$HOME/.tmp,$HOME/tmp,/var/tmp,/tmp
+"set backupdir=$HOME/.vim-tmp,$HOME/.tmp,$HOME/tmp,/var/tmp,/tmp
+"set directory=$HOME/.vim-tmp,$HOME/.tmp,$HOME/tmp,/var/tmp,/tmp
 
 " customised shortcuts
 " escape out of insert mode with jk
