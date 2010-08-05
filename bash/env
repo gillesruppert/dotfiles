@@ -16,11 +16,6 @@ export VIM_APP_DIR="/Applications"
 #set TextMate as editor for less (invoked by v)
 #export LESSEDIT='mate -l %lm %f'
 
-export http_proxy='http://www-cache.reith.bbc.co.uk:80'
-export https_proxy='http://www-cache.reith.bbc.co.uk:80'
-export ftp_proxy='ftp://ftp-gw.reith.bbc.co.uk:21'
-export socks_proxy='socks-gw.reith.bbc.co.uk:1085'
-
 export iplayer="$HOME/dev/forge/iplayer"
 export ionclient="$HOME/dev/forge/ionclient"
 export php="$HOME/dev/forge/iplayer/webapp/php"
