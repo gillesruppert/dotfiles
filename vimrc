@@ -33,12 +33,12 @@ let php_htmlInStrings=1
 "let php_folding=1
 
 " run file with PHP CLI (CTRL-M)
-:autocmd FileType php noremap <c-m> :w!<CR>:!/usr/bin/php %<CR>
+":autocmd FileType php noremap <c-m> :w!<CR>:!/usr/bin/php %<CR>
 
 " PHP parser check (CTRL-L)
 ":autocmd FileType php noremap <c-l> :!/usr/bin/php -l %<CR>
-set makeprg=php\ -l\ %
-set errorformat=%m\ in\ %f\ on\ line\ %l
+"set makeprg=php\ -l\ %
+"set errorformat=%m\ in\ %f\ on\ line\ %l
 
 " save with ,,
 inoremap <leader>, <esc>:w<cr>
@@ -199,9 +199,9 @@ map <leader>d :NERDTreeToggle<CR>
 " let VCSCommandMapPrefix="<leader>s"
 
 " phpdoc
-inoremap <leader>p <esc>:call PhpDocSingle()<cr>i
-nnoremap <leader>p :call PhpDocSingle()<cr>
-vnoremap <leader>p :call PhpDocSingle()<cr>
+"inoremap <leader>p <esc>:call PhpDocSingle()<cr>i
+"nnoremap <leader>p :call PhpDocSingle()<cr>
+"vnoremap <leader>p :call PhpDocSingle()<cr>
 
 " Make ',e' (in normal mode) give a prompt for opening files
 " in the same dir as the current buffer's file.
