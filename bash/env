@@ -16,13 +16,15 @@ export VIM_APP_DIR="/Applications"
 #set TextMate as editor for less (invoked by v)
 #export LESSEDIT='mate -l %lm %f'
 
-export iplayer="$HOME/dev/forge/iplayer"
-export ionclient="$HOME/dev/forge/ionclient"
-export php="$HOME/dev/forge/iplayer/webapp/php"
-export static="$HOME/dev/forge/iplayer/webapp/static"                                                                                                                                                                                                                     
-export modules="$HOME/dev/forge/iplayer/webapp/php/modules"
-export lib="$HOME/dev/forge/iplayer/webapp/php/lib"
-export pc="$HOME/dev/forge/iplayer/webapp/php/modules/pagecomponents"
+export iplayer="$HOME/Dropbox/dev/forge/iplayer"
+export ionclient="$HOME/Dropbox/dev/forge/ionclient"
+export php="$HOME/Dropbox/dev/forge/iplayer/webapp/php"
+export static="$HOME/Dropbox/dev/forge/iplayer/webapp/static-versioned"
+export script="$HOME/Dropbox/dev/forge/iplayer/webapp/static-versioned/script"
+export modules="$HOME/Dropbox/dev/forge/iplayer/webapp/php/modules"
+export lib="$HOME/Dropbox/dev/forge/iplayer/webapp/php/lib"
+export pc="$HOME/Dropbox/dev/forge/iplayer/webapp/php/modules/pagecomponents"
+export bbc="$HOME/Dropbox/dev/forge"
 
 
 # MacPorts Installer addition on 2009-11-24_at_11:48:51: adding an appropriate PATH variable for use with MacPorts.

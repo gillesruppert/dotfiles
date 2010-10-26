@@ -5,10 +5,14 @@ filetype plugin on
 filetype indent on
 let mapleader = ","
 
+" edit and save .vimrc quickly
+nmap <silent> <leader>ev :e $MYVIMRC<cr>
+nmap <silent> <leader>sv :so $MYVIMRC<cr>
 
 " added filetypes
 au BufNewFile,BufRead *.spv set filetype=php "add filetype
 au BufNewFile,BufRead *.liquid set filetype=xhtml "add filetype
+
 augroup mkd " add markdown syntax
 	autocmd BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:>
 augroup END
@@ -16,45 +20,12 @@ augroup END
 " automatically close tag as needed
 au Filetype html,xml,xsl,php,spv,phtml source $HOME/.vim/scripts/closetag.vim
 
-" taglist
-let Tlist_Ctags_Cmd = '~/.vim/utils/ctags' " set path to ctags utility
-let Tlist_WinWidth = 50
-map <leader>l :TlistToggle<CR> 
-map <F8> :!~/.vim/utils/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-let g:tlist_javascript_settings = 'javascript;s:string;a:array;o:object;f:function'
-
-" Easy Grep options
-let g:EasyGrepMode = 2
-let g:EasyGrepRecursive = 1
-
-" PHP options
-let php_sql_query=1
-let php_htmlInStrings=1
-"let php_folding=1
-
-" run file with PHP CLI (CTRL-M)
-":autocmd FileType php noremap <c-m> :w!<CR>:!/usr/bin/php %<CR>
-
-" PHP parser check (CTRL-L)
-":autocmd FileType php noremap <c-l> :!/usr/bin/php -l %<CR>
-"set makeprg=php\ -l\ %
-"set errorformat=%m\ in\ %f\ on\ line\ %l
-
-" save with ,,
-inoremap <leader>, <esc>:w<cr>
-nnoremap <leader>, :w<cr>
-
-" save & restore sessions
-set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
-map <c-s> :mksession! $HOME/.vimsession <cr>
-map <c-o> :source $HOME/.vimsession <cr>
-
 " added word chars
 set iskeyword+=$
 set iskeyword+=-
 set iskeyword+=_ 
 
-" buffer can't be put to background without saving
+" allow buffer to be put in the background without saving
 set hidden
 
 " search settings
@@ -62,8 +33,6 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-" switch search highighting off temporaril
-nmap <silent> <leader>n :silent :nohlsearch<CR>
 
 " indent settings
 set autoindent
@@ -82,20 +51,47 @@ set cul " highlights the cursor line
 set nowrap
 set encoding=utf-8
 
-set visualbell
+set visualbell " don't beep
+set noerrorbells " don't beep
 
-" show invisible chars
-set listchars=tab:>-,trail:·,eol:$
-nmap <silent> <leader>i :set nolist!<CR>
+" do not create swap files!
+set nobackup
+set noswapfile
+
+set pastetoggle=<F5>
+
+set listchars=tab:>-,trail:-,extends:#,nbsp:%
+
+let g:LustyJugglerSuppressRubyWarning = 1 " do not show a warning if ruby is not present
+let g:LustyExplorerSuppressRubyWarning = 1 " do not show a warning if ruby is not present
+
+set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
+
+" set backspace to act like normal
+set backspace=start,indent,eol
 
 " scroll 3 lines before bottom/top
 set scrolloff=3
 
-" put swp files into the tmp dir rather than next to the file!
-"set backupdir=$HOME/.vim-tmp,$HOME/.tmp,$HOME/tmp,/var/tmp,/tmp
-"set directory=$HOME/.vim-tmp,$HOME/.tmp,$HOME/tmp,/var/tmp,/tmp
+" create a larger history
+set history=100
+
 
 " customised shortcuts
+" save with ,,
+inoremap <leader>, <esc>:w<cr>
+nnoremap <leader>, :w<cr>
+
+" save readonly files with w!!
+cmap w!! w !sudo tee % >/dev/null
+
+" save & restore sessions
+map <c-s> :mksession! <cr>
+map <c-o> :source Session.vim <cr>
+
+" switch search highighting off temporaril
+nmap <silent> <leader>/ :nohlsearch<CR>
+
 " escape out of insert mode with jk
 inoremap jk <Esc>
 
@@ -106,18 +102,26 @@ imap <c-space> <c-x><c-o>
 nnoremap ' `
 nnoremap ` '
 
+" swap ; : for easier commands
+nnoremap ; :
+
 " Vertical split then hop to new buffer
 :noremap <leader>v :vsp<CR>
 :noremap <leader>h :split<CR>
+
 " Make current window the only one
 :noremap <leader>O :only :tabo<CR>
 :noremap <leader>o :only<CR>
+
+" move cursor to next row rather than line. Good when wrapping is on
+nnoremap j gj
+nnoremap k gk
 
 " Buffer next,previous (ctrl-{n,p})
 :noremap <c-n> :bn<CR>
 :noremap <c-p> :bp<CR>
 " Buffer delete (ctrl-c)
-":noremap <c-q> :bd<CR>
+:noremap <c-q> :bd<CR>
 
 " remap going through windows
 map <c-j> <c-w>j 
@@ -129,11 +133,17 @@ map <c-c>k <c-w>k<c-w>c<c-w>j
 map <c-c>l <c-w>l<c-w>c<c-w>h
 map <c-c>h <c-w>h<c-w>c<c-w>l
 
-" set backspace to act like normal
-set backspace=start,indent,eol
+" nerd tree
+map <leader>d :NERDTreeToggle<CR>
 
-" create a larger history
-set history=100
+" Lusty Juggler & Explorer
+nmap <silent> <leader>m :LustyJuggler<CR> " buffer switcher
+nmap <silent> <leader>a :LustyBufferExplorer<CR> " file explorer
+
+" show invisible chars
+nmap <silent> <leader>i :set nolist!<CR>
+
+" editor settings
 
 " show autocomplete menus
 set wildmenu
@@ -148,10 +158,6 @@ set showcmd
 " show editing mode
 set showmode
 
-" gvim don't display the menu or toolbar
-set guioptions-=m
-set guioptions-=T
-
 " set the title within xterm as well
 set title
 
@@ -161,83 +167,68 @@ set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \%P\ %{fug
 
 " set colorscheme depending on env
 set bg=dark
-if has("gui_running")
-	"colorscheme desert
-	"colorscheme inkpot
-	colorscheme wombat
-	"colorscheme ir_black
-	"colorscheme synic
-else
-	colorscheme darkblue
-	"colorscheme wombat
-	"colorscheme ir_black
+
+" gvim don't display the menu or toolbar
+set guioptions-=m
+set guioptions-=T
+
+if &t_Co >= 256 || has("gui_running")
+	"colorscheme my-wombat
+	colorscheme mustang
 endif
 
 " Font. Very important.
-set guifont="Monaco:h12"
+set guifont="Meslo LG S DZ":h12
 
 if has('win32') || has('win64')
-    " set guifont=Monaco:h16
-    " http://jeffmilner.com/index.php/2005/07/30/windows-vista-fonts-now-available/
-    set guifont=Consolas:h12:cANSI
+	set guifont=Consolas:h13:cANSI
 elseif has('unix')
-    let &guifont="Monospace:h12"
+	let &guifont="Monospace:h13"
 endif
 
-" fuzzy finder
-"let g:fuzzy_ceiling = 10
-let g:fuzzy_matching_limit = 30
-let g:fuzzy_ignore = '**/profilingFixtures/*;**/fixtures/*'
-map <leader>t :FuzzyFinderTextMate<CR>
-map <leader>b :FuzzyFinderBuffer<CR>
-map <c-t> :FufFile<cr> "new version of FuzzyFileFinder
 
-" nerd tree
-map <leader>d :NERDTreeToggle<CR>
-
-" change the VCS prefix command
-" let VCSCommandMapPrefix="<leader>s"
-
-" phpdoc
-"inoremap <leader>p <esc>:call PhpDocSingle()<cr>i
-"nnoremap <leader>p :call PhpDocSingle()<cr>
-"vnoremap <leader>p :call PhpDocSingle()<cr>
-
-" Make ',e' (in normal mode) give a prompt for opening files
-" in the same dir as the current buffer's file.
-" if has("unix")
-"   map ,e :e <CR>=expand("%:p:h") . "/" <CR>
-" else
-"   map ,e :e <CR>=expand("%:p:h") . "\\" <CR>
-" endif
-
+" create a uuid
 imap <c-j>d <c-r>=system('$HOME/.vim/utils/uuid.sh')<cr>
 
-" cscope settings
-" if has("cscope")
-	" Some scsope specific settings
-"	set cscopequickfix=s-,c-,d-,i-,t-,e-
+" show hightlighting groups for current word
+nmap <leader>sh :call <sid>SynStack()<cr>
+function <sid>SynStack()
+	if !exists("*synstack")
+		return
+	endif
+	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
 
-	" always use cscope instead of tags
-	" set cst
+" highlight lines that are longer than 80 chars
+highlight OverLength guifg=#ffffff guibg=#ff0000 gui=NONE
+match OverLength /\%81v.\+/
+" match ErrorMsg /\%81v.\+/
 
-	" path to cscope
-"	set csprg=/usr/bin/cscope
+" taglist
+let Tlist_Ctags_Cmd = '~/.vim/utils/ctags' " set path to ctags utility
+let Tlist_WinWidth = 50
+map <leader>l :TlistToggle<CR>
+map <F8> :!~/.vim/utils/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+let g:tlist_javascript_settings = 'javascript;s:string;a:array;o:object;f:function'
 
-	" search databased before searching tag files
-	" set cscopetagorder=0
+" Easy Grep options
+let g:EasyGrepMode = 2
+let g:EasyGrepRecursive = 1
 
-	" don\'t display cscope messages when adding database
-	" set nocsverb
+" set ack as the grep programme
+set grepprg=ack\ -ai
 
-	" add any database in current directory
-	" if filereadable("cscope.out")
-		" cs add cscope.out
-		" else add database pointed to by environment
-	" elseif $CSCOPE_DB != ""
-		" cs add $CSCOPE_DB
-	" endif
+" PHP options
+let php_sql_query=1
+let php_htmlInStrings=1
+"let php_folding=1
 
-	" reset cscope verbosity
-	" set csverb
-" endif
+" run file with PHP CLI (CTRL-M)
+:autocmd FileType php noremap <c-m> :w!<CR>:!/usr/bin/php %<CR>
+
+" PHP parser check (CTRL-L)
+:autocmd FileType php noremap <c-l> :!/usr/bin/php -l %<CR>
+
+" put swp files into the tmp dir rather than next to the file!
+"set backupdir=$HOME/.vim-tmp,$HOME/.tmp,$HOME/tmp,/var/tmp,/tmp
+"set directory=$HOME/.vim-tmp,$HOME/.tmp,$HOME/tmp,/var/tmp,/tmp

@@ -10,3 +10,6 @@ augroup markdown
 	au! BufRead,BufNewFile *.mkd   setfiletype mkd
 
 augroup END
+
+"runtime! ftdetect/*.vim
+au BufNewFile,BufRead *.mustache	setf mustache

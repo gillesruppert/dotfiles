@@ -16,13 +16,22 @@ function take {
 }
 
 function ippatch {
-	cd ~/dev/forge/iplayer
+	cd ~Dropbox/dev/forge/iplayer
 	git diff --no-prefix > ~/Dropbox/Projects/iplayer/iplayer.patch
+}
+
+function rmbuild {
+	pushd $script
+	rm -rf iplayer/pal
+	rm -rf iplayer-build
+	rm -rf ../style/iplayer-min
+	rm -rf radionconsole-min
+	popd
 }
 
 #specific aliases
 alias forge='ssh root@pal.sandbox.dev.bbc.co.uk'
-alias dev='cd ~/dev'
+alias dev='cd ~/Dropbox/dev'
 
 # git aliases
 alias g='git status'
@@ -30,9 +39,11 @@ alias go='git checkout'
 alias gd='git diff'
 alias gsr='git svn rebase'
 alias gsd='git svn dcommit'
+alias gsi='git svn info'
 alias gsdd='git svn dcommit --dry-run'
 alias gsf='git svn fetch'
 alias gap='git add -p'
+alias gai='git add -i'
 alias glog='git log --pretty="oneline"'
 alias gs='git stash'
 alias ga='git stash apply'
