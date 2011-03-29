@@ -1,37 +1,32 @@
-#aliases for user. Pulled in via bashrc
+# Push and pop directories on directory stack
+alias pu='pushd'
+alias po='popd'
 
 alias ll='ls -lF'
 alias la='ls -alF'
 
-alias reload='source ~/.bash_profile'
+alias reload='source ~/.bashrc'
 alias c='clear'
+alias ="clear \n"
 alias h='history'
-alias ..='cd ..'
-alias _='cd -'
+alias -- -='cd -'
 alias ack='ack -a'
 
-function take {
-	mkdir -p $1
-	cd $1
+# Super user
+alias _='sudo'
+
+function mdc {
+	mkdir -p $1 && cd $1
 }
 
-function ippatch {
-	cd ~Dropbox/dev/forge/iplayer
-	git diff --no-prefix > ~/Dropbox/Projects/iplayer/iplayer.patch
-}
-
-function rmbuild {
-	pushd $script
-	rm -rf iplayer/pal
-	rm -rf iplayer-build
-	rm -rf ../style/iplayer-min
-	rm -rf radionconsole-min
-	popd
-}
+alias ..='cd ..'
+alias cd..='cd ..'
+alias cd...='cd ../..'
+alias cd....='cd ../../..'
+alias cd.....='cd ../../../..'
 
 #specific aliases
-alias forge='ssh root@pal.sandbox.dev.bbc.co.uk'
-alias dev='cd ~/Dropbox/dev'
+alias chromedev='nohup /Applications/Google\ Chrome\ dev.app/Contents/MacOS/Google\ Chrome --incognito --user-data-dir="/Users/gillesruppert/Library/Application Support/Google/Chrome/DevVersion" --first-run &'
 
 # git aliases
 alias g='git status'
@@ -47,6 +42,8 @@ alias gai='git add -i'
 alias glog='git log --pretty="oneline"'
 alias gs='git stash'
 alias ga='git stash apply'
+alias gn='git mv -f'
+alias grma='git ls-files --deleted | xargs git rm'
 
 function gg {
 	git commit -v -m "$*"
@@ -55,8 +52,6 @@ function gg {
 function gc {
 	git commit -am "$*"
 }
+
+alias server="open http://localhost:8080/ && python -m SimpleHTTPServer 8080"
  
-# GREP_COLOR=bright yellow on black bg.
-# use GREP_COLOR=7 to highlight whitespace on black terminals
-# LANG=C for speed. See also: http://www.pixelbeat.org/scripts/findrepo
-alias grep='GREP_COLOR="1;33;40" LANG=C grep --color=auto'

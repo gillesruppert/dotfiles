@@ -1,9 +1,10 @@
 [user]
 	name = Gilles Ruppert
-	email = gillesruppert@gmail.com
+	email = gilles@madeofbytes.com
 [core]
 	excludesfile = ~/.gitignore
 	editor = /usr/bin/vim
+	ignorecase = true
 
 [color]
 	ui = auto
@@ -15,3 +16,14 @@
 	cp = cherry-pick
 	logp = log --pretty=oneline
 	lp = log --pretty=format:'%h was %an, %ar, message: %s'
+[merge]
+  # tool = mvimdiff
+[mergetool]
+  keepbackup=false
+[mergetool "mvimdiff"]
+	cmd=mvim -d -g $LOCAL $MERGED $REMOTE
+	keepbackup=false
+[apply]
+	whitespace = nowarn
+[push]
+	default = tracking

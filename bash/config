@@ -1,12 +1,42 @@
 # config file. Pulled in via bashrc
 
-test -r /sw/bin/init.sh && . /sw/bin/init.sh
+#test -r /sw/bin/init.sh && . /sw/bin/init.sh
 # shows which git branch the current directory is in
 # \e[x;ym .... \e[m switches color on & off
-PS1='\e[0;36m\h:\W$(__git_ps1 "(%s)") \u\n→ \e[m'
+# PS1='\e[0;36m\h:\W$(__git_ps1 "(%s)") \u\n→ \e[m'
+
+
+# display → as prompt, unless you are on a git tree, in which case, print ±
+function prompt_char {
+	git branch >/dev/null 2>/dev/null && echo '±' && return
+	echo '→'
+}
+
+# print x when the git branch is dirty, else )
+parse_git_dirty () {
+  if [[ -n $(git status -s 2> /dev/null) ]]; then
+    echo ' ✗'
+  else
+    echo ' )'
+  fi
+}
+
+# shows which git branch the current directory is in
+# \e[x;ym .... \e[m switches color on & off
+# my fancy command prompt, with git info
+PS1='\e[0;34m\u\e[m@\e[0;31m\h\e[m:\e[0;36m\w\e[m$(__git_ps1 " on \e[0;31m%s\e[m$(parse_git_dirty)") \n$(prompt_char) '
 
 # I hate noise
 set bell-style visible
 
 # Tell less not to beep and also display colours
 export LESS="-QR"
+
+# GREP_COLOR=bright yellow on black bg.
+# use GREP_COLOR=7 to highlight whitespace on black terminals
+# LANG=C for speed. See also: http://www.pixelbeat.org/scripts/findrepo
+#alias grep='GREP_COLOR="1;33;40" LANG=C grep --color=auto'
+export GREP_OPTIONS='--color=auto'
+
+# set vi mode
+set -o vi

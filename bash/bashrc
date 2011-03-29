@@ -1,0 +1,12 @@
+export DOT_FILES=$HOME/Dropbox/settings/dotfiles/
+
+. $DOT_FILES/bash/env
+. $DOT_FILES/bash/config
+. $DOT_FILES/bash/aliases
+# if [ -f /opt/local/etc/bash_completion ]; then
+# 	. /opt/local/etc/bash_completion
+# else
+if [ -f $DOT_FILES/git-completion.bash ]; then
+  . $DOT_FILES/git-completion.bash
+fi
+
