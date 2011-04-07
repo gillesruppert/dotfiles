@@ -17,3 +17,11 @@ fi
 if [ -f $DOT_FILES/git-flow-completion.bash ]; then
   . $DOT_FILES/git-flow-completion.bash
 fi
+
+PROJECTS=$DOT_FILES/bash/projects/*
+
+for f in $PROJECTS
+do
+  echo "Sourcing: " $f
+  . $f
+done
