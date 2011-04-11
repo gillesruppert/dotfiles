@@ -7,7 +7,7 @@ alias la='ls -alF'
 
 alias reload='source ~/.bashrc'
 alias c='clear'
-alias ="clear \n"
+alias ="clear"
 alias h='history'
 alias -- -='cd -'
 alias ack='ack -a'
@@ -20,17 +20,16 @@ function mdc {
 }
 
 alias ..='cd ..'
-alias cd..='cd ..'
-alias cd...='cd ../..'
-alias cd....='cd ../../..'
-alias cd.....='cd ../../../..'
-
-#specific aliases
-alias chromedev='nohup /Applications/Google\ Chrome\ dev.app/Contents/MacOS/Google\ Chrome --incognito --user-data-dir="/Users/gillesruppert/Library/Application Support/Google/Chrome/DevVersion" --first-run &'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+alias cd..='cd ..' # common typo...
 
 # git aliases
 alias g='git status'
 alias go='git checkout'
+alias gc='git commit'
 alias gd='git diff'
 alias gs='git stash'
 alias ga='git stash apply'
@@ -38,24 +37,26 @@ alias gn='git mv -f'
 alias gf='git fetch'
 alias gp='git push'
 alias gm='git checkout master'
+alias gl='git log'
+alias gpo='git push -u origin'
 alias gmm='git merge origin/master'
+alias gap='git add -p'
+alias gai='git add -i'
+alias gl1='git log --pretty="oneline"'
+alias grma='git ls-files --deleted | xargs git rm'
 alias gsr='git svn rebase'
 alias gsd='git svn dcommit'
 alias gsi='git svn info'
 alias gsdd='git svn dcommit --dry-run'
 alias gsf='git svn fetch'
-alias gap='git add -p'
-alias gai='git add -i'
-alias glog='git log --pretty="oneline"'
-alias grma='git ls-files --deleted | xargs git rm'
 
 function gg {
 	git commit -v -m "$*"
 }
 
-function gc {
-	git commit -am "$*"
-}
+# function gc {
+# 	git commit -am "$*"
+# }
 
 alias server="open http://localhost:8080/ && python -m SimpleHTTPServer 8080"
  
