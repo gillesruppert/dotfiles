@@ -33,6 +33,7 @@ fi
 PROJECTS=$DOT_FILES/bash/projects/*
 for f in $PROJECTS
 do
-  echo "Sourcing: " $f
+  echo -ne "."
   . $f
 done
+echo ""

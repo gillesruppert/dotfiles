@@ -1,0 +1,5 @@
+/*jshint plusplus: false, debug: false, devel: false, sub: true, newcap: true, undef: true */
+/*global console: true, jQuery: false */
+/*global module: true, test: true, equal: true, deepEqual: true, strictEqual: true, ok: true, raises: true, notEqual: true, notDeepEqual: true, notStrictEqual: true */
+/*global GlobalDawn: true */
+/* vim: set ft=javascript: */
