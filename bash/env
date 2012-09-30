@@ -1,16 +1,14 @@
 #env vars for user. Pulled in via bashrc
 
 #PATH=/usr/local/bin:/usr/local/bin/node/bin:/usr/local/sbin:/Users/ruppeg01/bin:/bin:/sbin:/usr/bin:/usr/sbin:usr/local:/usr/local/mysql/bin:
-PATH=/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:
+PATH=/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:$HOME/dev/lib/android-sdk-macosx/tools:$HOME/dev/lib/android-sdk-macosx/platform-tools:
 export PATH
 
-#Zend Tool setup
-# ZEND_TOOL_INCLUDE_PATH=/Users/gillesruppert/dev/ZendFramework-1.10.6/library/
-# export ZEND_TOOL_INCLUDE_PATH
 
 # to set VIM as the editor for the EDITOR variable
-export EDITOR="vim"
-export CVSEDITOR="vim"
-export SVN_EDITOR="vim"
+export EDITOR="vi"
+export CVSEDITOR="vi"
+export SVN_EDITOR="vi"
 
 export VIM_APP_DIR="/Applications"
+export NODE_PATH=/usr/local/lib/jsctags/:$NODE_PATH

@@ -38,5 +38,5 @@ export LESS="-QR"
 #alias grep='GREP_COLOR="1;33;40" LANG=C grep --color=auto'
 export GREP_OPTIONS='--color=auto'
 
-# set vi mode
+# set vi mode on the prompt
 set -o vi

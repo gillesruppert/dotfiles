@@ -2,8 +2,16 @@
 alias pu='pushd'
 alias po='popd'
 
-alias ll='ls -lF'
-alias la='ls -alF'
+#alias ls='ls --color=auto'
+alias ls='ls -G'
+alias ll='ls -alF'
+alias la='ls -Al'
+alias l='ls -AlCF'
+
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
 
 alias reload='source ~/.bashrc'
 alias c='clear'
@@ -11,11 +19,24 @@ alias ="clear"
 alias h='history'
 alias -- -='cd -'
 alias ack='ack -a'
+alias gsed='sed'
+
+alias n='nvm use default'
+
+# Empty the Trash on all mounted volumes and the main HDD
+# Also, clear Apple’s System Logs to improve shell startup speed
+alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
+
+
+
+# use GNU sed instead of FreeBSD
+# not needed as I renamed the sed command directly
+alias sed='gsed'
 
 # Super user
 alias _='sudo'
 
-function mdc {
+function take {
 	mkdir -p $1 && cd $1
 }
 
@@ -29,7 +50,9 @@ alias cd..='cd ..' # common typo...
 # git aliases
 alias g='git status'
 alias go='git checkout'
-alias gc='git commit'
+alias gg='git commit'
+alias gca='git commit -am'
+alias gc='git commit -m'
 alias gd='git diff'
 alias gs='git stash'
 alias ga='git stash apply'
@@ -40,6 +63,7 @@ alias gm='git checkout master'
 alias gl='git log'
 alias gpo='git push -u origin'
 alias gmm='git merge origin/master'
+alias grm='git rebase origin/master'
 alias gap='git add -p'
 alias gai='git add -i'
 alias gl1='git log --pretty="oneline"'
@@ -50,9 +74,9 @@ alias gsi='git svn info'
 alias gsdd='git svn dcommit --dry-run'
 alias gsf='git svn fetch'
 
-function gg {
-	git commit -v -m "$*"
-}
+# function gg {
+# 	git commit -v -m "$*"
+# }
 
 # function gc {
 # 	git commit -am "$*"

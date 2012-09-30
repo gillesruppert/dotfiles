@@ -2,28 +2,30 @@
 	name = Gilles Ruppert
 	email = gilles@madeofbytes.com
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = $HOME/.gitignore_global
+	excludesfile = $HOME/.gitignore
 	editor = /usr/bin/vim
 	ignorecase = true
-
 [color]
 	ui = auto
-
 [alias]
 	ci = commit
 	st = status
 	co = checkout
 	cp = cherry-pick
-	logp = log --pretty=oneline
 	lp = log --pretty=format:'%h was %an, %ar, message: %s'
-[merge]
-  # tool = mvimdiff
-[mergetool]
-  keepbackup=false
 [mergetool "mvimdiff"]
-	cmd=mvim -d -g $LOCAL $MERGED $REMOTE
-	keepbackup=false
-[apply]
-	whitespace = nowarn
+  cmd=mvim -d -g $LOCAL $MERGED $REMOTE
+  keepbackup=false
 [push]
 	default = tracking
+[branch "master"]
+	rebase = true
+[branch]
+	autosetuprebase = always
+[difftool]
+	prompt = false
+[merge]
+  tool = opendiff
+[mergetool]
+  keepbackup=false
