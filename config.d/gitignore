@@ -1,6 +1,4 @@
 .DS_Store
-*.esproj
-*.espressostorage
 *.swp
 tags
 Session.vim

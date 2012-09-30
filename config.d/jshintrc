@@ -1,8 +1,4 @@
 {
-  "node": true,
-  "dojo": true,
-  "browser": true,
-
   "asi": true,
   "laxcomma": true,
   "debug": false,
