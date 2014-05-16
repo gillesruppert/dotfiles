@@ -1,5 +1,7 @@
 {
-  "asi": true,
+  "node": true,
+  "browser": true,
+  "asi": false,
   "laxcomma": true,
   "debug": false,
   "devel": true,

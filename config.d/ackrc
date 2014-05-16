@@ -1,0 +1,15 @@
+--ignore-dir=.work
+--ignore-dir=.tmp
+--ignore-dir=node_modules
+--ignore-dir=dist
+--ignore-dir=cache
+--ignore-dir=vendor
+--ignore-dir=components
+--ignore-dir=build
+--type-set=haml=.haml
+--type-set=coffee=.coffee
+--type-set=html=.twig
+--type-set=jade=.jade
+--type-set=stylus=.styl
+--type-set=sass=.sass
+--type-set=less=.less

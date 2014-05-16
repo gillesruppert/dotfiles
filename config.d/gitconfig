@@ -2,18 +2,30 @@
 	name = Gilles Ruppert
 	email = gilles@madeofbytes.com
 [core]
-	excludesfile = $HOME/.gitignore_global
-	excludesfile = $HOME/.gitignore
 	editor = /usr/bin/vim
 	ignorecase = true
+	excludesfile = ~/.gitignore_global
+	precomposeunicode = true
 [color]
+  diff = auto
+  status = auto
+  branch = auto
 	ui = auto
 [alias]
 	ci = commit
 	st = status
 	co = checkout
 	cp = cherry-pick
-	lp = log --pretty=format:'%h was %an, %ar, message: %s'
+	logp = log --pretty=format:'%h was %an, %ar, message: %s'
+  cob = 'checkout -b'
+  see-all = log --graph --pretty=oneline --decorate=full --all
+  see = "!f() { git log --graph --pretty=oneline --decorate=full ${1:-`git rev-parse --abbrev-ref HEAD`}; }; f"
+  next = "!f() { CURRENT=`git rev-parse HEAD`; NEXT=`git log --pretty=format:'%H %P' --all | grep $CURRENT | tail -2 | head -1 | cut -d ' ' -f 1`; git checkout $NEXT; }; f"
+  prev = checkout HEAD~
+  ignoref = update-index --assume-unchanged
+  unignore = update-index --no-assume-unchanged
+  ignored = !git ls-files -v | grep ^[a-z]
+  branch-ls-r = !git for-each-ref --sort=-committerdate refs/remotes/origin --format='%(committerdate:short) %(authorname) %(refname:short)'
 [mergetool "mvimdiff"]
   cmd=mvim -d -g $LOCAL $MERGED $REMOTE
   keepbackup=false
@@ -26,6 +38,15 @@
 [difftool]
 	prompt = false
 [merge]
-  tool = opendiff
+	tool = opendiff
 [mergetool]
   keepbackup=false
+	prompt = false
+[diff]
+  renameLimit = 5000
+	tool = opendiff
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true

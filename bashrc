@@ -65,10 +65,6 @@ if [ -d $COMPLETION ]; then
   done
 fi
 
-if [ -f $HOME/dev/lib/nvm/nvm.sh ]; then
-  . $HOME/dev/lib/nvm/nvm.sh
-fi
-
 eval "$(hub alias -s)"
 
 # homebrew completion
@@ -98,3 +94,20 @@ for f in $PROJECTS; do
   . $f
 done
 
+export PATH=$PATH:/Applications/MAMP/Library/bin
+
+export NODE_PATH=/usr/local/lib/node_modules/:$NODE_PATH
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+### for Android debugging
+export PATH="$HOME/dev/lib/adt-bundle/sdk/build-tools:$HOME/dev/lib/adt-bundle/sdk/tools:$HOME/dev/lib/adt-bundle/sdk/platform-tools:$PATH"
+
+### set higher ulimit to avoid issues with watch:
+ulimit -n 2560
+
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home"
+
+alias vim="mvim -v"

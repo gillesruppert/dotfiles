@@ -18,10 +18,8 @@ alias c='clear'
 alias ="clear"
 alias h='history'
 alias -- -='cd -'
-alias ack='ack -a'
 alias gsed='sed'
 
-alias n='nvm use default'
 
 # Empty the Trash on all mounted volumes and the main HDD
 # Also, clear Apple’s System Logs to improve shell startup speed
@@ -51,7 +49,7 @@ alias cd..='cd ..' # common typo...
 alias g='git status'
 alias go='git checkout'
 alias gg='git commit'
-alias gca='git commit -am'
+alias gca='git commit --amend'
 alias gc='git commit -m'
 alias gd='git diff'
 alias gs='git stash'
@@ -73,6 +71,7 @@ alias gsd='git svn dcommit'
 alias gsi='git svn info'
 alias gsdd='git svn dcommit --dry-run'
 alias gsf='git svn fetch'
+alias gob='git checkout -b'
 
 # function gg {
 # 	git commit -v -m "$*"
@@ -81,6 +80,3 @@ alias gsf='git svn fetch'
 # function gc {
 # 	git commit -am "$*"
 # }
-
-alias server="open http://localhost:8080/ && python -m SimpleHTTPServer 8080"
- 

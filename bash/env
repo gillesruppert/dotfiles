@@ -1,7 +1,7 @@
 #env vars for user. Pulled in via bashrc
 
 #PATH=/usr/local/bin:/usr/local/bin/node/bin:/usr/local/sbin:/Users/ruppeg01/bin:/bin:/sbin:/usr/bin:/usr/sbin:usr/local:/usr/local/mysql/bin:
-PATH=/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:$HOME/dev/lib/android-sdk-macosx/tools:$HOME/dev/lib/android-sdk-macosx/platform-tools:
+PATH=/Applications/MAMP/bin/php/php5.3.14/bin:/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:$HOME/dev/lib/android-sdk-macosx/tools:$HOME/dev/lib/android-sdk-macosx/platform-tools:
 export PATH
 
 

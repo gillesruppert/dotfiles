@@ -1,0 +1,10 @@
+.DS_Store
+.lvimrc
+.DS_Store
+*.swp
+tags
+Session.vim
+*.swo
+.tern-port
+.my_app
+.mob

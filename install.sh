@@ -27,9 +27,13 @@ fi
 ln -s $CWD/bashrc $HOME/.bashrc
 
 # set up dot config files
+ln -s $CWD/config.d/ackrc $HOME/.ackrc
+ln -s $CWD/config.d/ctags $HOME/.ctags
+ln -s $CWD/config.d/curlrc $HOME/.curlrc
 ln -s $CWD/config.d/gitconfig $HOME/.gitconfig
-ln -s $CWD/config.d/gitignore $HOME/.gitignore
+ln -s $CWD/config.d/gitignore_global $HOME/.gitignore_global
 ln -s $CWD/config.d/jshintrc $HOME/.jshintrc
+ln -s $CWD/config.d/tmux.conf $HOME/.tmux.conf
 
 # export the DOTFILES directory for use in .bashrc
 echo $CWD > $HOME/.dotfiles_dir
