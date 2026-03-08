@@ -27,10 +27,16 @@ alias vi='vim'
 # Also, clear Apple’s System Logs to improve shell startup speed
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
 
+# rename function
+ren () {
+  for i in *; do
+    new="${i/$1/$2}"
+    [[ "$i" != "$new" ]] && mv -- "$i" "$new"
+  done
+}
 
 
 # use GNU sed instead of FreeBSD
-# not needed as I renamed the sed command directly
 alias sed='gsed'
 
 # Super user
@@ -74,11 +80,3 @@ alias gsi='git svn info'
 alias gsdd='git svn dcommit --dry-run'
 alias gsf='git svn fetch'
 alias gob='git checkout -b'
-
-# function gg {
-# 	git commit -v -m "$*"
-# }
-
-# function gc {
-# 	git commit -am "$*"
-# }

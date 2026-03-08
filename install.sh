@@ -32,6 +32,8 @@ function link_config {
 
   ## export the DOTFILES directory for use in .bashrc
   echo $CWD > $HOME/.dotfiles_dir
+  touch $HOME/.bash_profile
+  echo "source $HOME/.bashrc" >> $HOME/.bash_profile
   echo ''
   echo "Close terminal and open a new one to source the new .bashrc"
 }
