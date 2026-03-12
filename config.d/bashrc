@@ -9,17 +9,6 @@ HISTFILESIZE=10000
 HISTCONTROL=ignoredups:ignorespace
 shopt -s histappend
 
-__history_sync() {
-  history -a
-  history -n
-}
-
-if [[ -n "${PROMPT_COMMAND:-}" ]]; then
-  PROMPT_COMMAND="__history_sync; $PROMPT_COMMAND"
-else
-  PROMPT_COMMAND="__history_sync"
-fi
-
 # ----- less / lesspipe -----
 export PAGER="less"
 export LESS="-QR"
@@ -111,4 +100,3 @@ PROJECTS=$DOT_FILES/bash/projects/*
 for f in $PROJECTS; do
   . $f
 done
-
